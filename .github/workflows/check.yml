@@ -1,0 +1,34 @@
+name: Check
+
+
+
+
+
+on: push
+
+
+
+
+
+jobs:
+
+  checking:
+    name: Check
+    runs-on: ubuntu-18.04
+
+    steps:
+
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 10
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - run: npm install --no-save
+      - run: npm --prefix types/ramda install --no-save
+      - run: npm run lint ramda
+      - run: npm run test
+
+
