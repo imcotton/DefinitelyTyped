@@ -1857,8 +1857,8 @@ export function takeWhile<T>(fn: (x: T) => boolean): (list: readonly T[]) => T[]
 /**
  * The function to call with x. The return value of fn will be thrown away.
  */
-export function tap<T>(fn: (a: T) => any, value: T): T;
-export function tap<T>(fn: (a: T) => any): (value: T) => T;
+export function tap<T, U extends T>(fn: (a: U) => any, value: T): T;
+export function tap<T, U extends T>(fn: (a: U) => any): (value: T) => T;
 
 /**
  * Determines whether a given string matches a given regular expression.
