@@ -227,8 +227,8 @@ export function binary<T extends (...arg: any) => any>(fn: T): (...arg: _.T.Take
  * Creates a function that is bound to a context. Note: R.bind does not provide the additional argument-binding
  * capabilities of Function.prototype.bind.
  */
-export function bind<F extends (...args: readonly any[]) => any, T>(fn: F, thisObj: T): (...args: Parameters<F>) => ReturnType<F>;
-export function bind<F extends (...args: readonly any[]) => any, T>(fn: F): (thisObj: T) => (...args: Parameters<F>) => ReturnType<F>;
+export function bind<F extends (...args: readonly any[]) => any, T>(fn: F, thisObj: T): F;
+export function bind<F extends (...args: readonly any[]) => any, T>(fn: F): (thisObj: T) => F;
 
 /**
  * A function wrapping calls to the two functions in an && operation, returning the result of the first function
